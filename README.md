@@ -1,2 +1,2 @@
 # siux-python
-Python API library
+Python API library (src, example)
