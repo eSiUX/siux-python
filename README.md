@@ -1,6 +1,10 @@
 # siux-python
-<<<<<<< HEAD
+
 Python API library (src, example)
-=======
-Python API library
->>>>>>> e4bd35a... Initial commit
+
+# cd example
+
+# vim exampe_source.py
+... [change YOUR_API_KEY]
+
+# python exampe_source.py
