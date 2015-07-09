@@ -7,7 +7,7 @@ Run example:
 
 `# cd example`
 
-`# vim exampe_source.py`
+`# vim example_source.py`
 ... [change YOUR_API_KEY]
 
 `# python exampLe_source.py`
