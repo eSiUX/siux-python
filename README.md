@@ -2,9 +2,10 @@
 
 Python API library (src, example)
 
-# cd example
+`# cd example`
 
-# vim exampe_source.py
+`# vim exampe_source.py`
 ... [change YOUR_API_KEY]
 
-# python exampe_source.py
+`# python exampe_source.py`
+
