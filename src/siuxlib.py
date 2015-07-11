@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-import xmlrpclib, socket
+import xmlrpclib, socket, ConfigParser, os, os.path, time
 import siuxmethodlib
 
 
@@ -31,22 +31,78 @@ class TimeoutTransport (xmlrpclib.Transport):
 class SiUXclient(siuxmethodlib.SiUXmethod):
 
 
-	def __init__( self, auth='', timeout=10 ):
+	def __init__( self, auth='', timeout=0 ):
 		""" init """
 
-		# config
-		self.repeat = 3
-		url = 'http://api.esiux.net:3035/RPC2'
+		if auth == '<YOUR_API_KEY>':
+			auth = ''
+
+		# read config
+		self.__config( auth=auth, timeout=timeout )
 
 		# server connect
-		t = TimeoutTransport(timeout=timeout)
-		self.__server = xmlrpclib.ServerProxy( url, transport=t)
+		t = TimeoutTransport( timeout=self.__timeout )
+		self.__server = xmlrpclib.ServerProxy( self.__url, transport=t)
+
+
+	def __config( self, auth='', timeout=0 ):
+		""" read data from config file """
+
+		# default config
+		self.__repeat = 3
+		self.__url = 'http://api.esiux.net:3035/RPC2'
+
+		# config filenames	
+		filenames = [ 'siux.conf', '../siux.conf' ]
+		if os.environ.get( 'SIUX_CONFIG_FILE' ):
+			filenames.append( os.environ['SIUX_CONFIG_FILE'] )
+
+		# filename exist?
+		configFilename = None
+		for filename in filenames:
+			if os.path.isfile( filename ):
+				configFilename = filename
+		
+		# default config
+		if not configFilename:
+
+			if not timeout:
+				self.__timeout = 10
+
+			self.__auth = auth
+
+			return
+
+		# config init
+		cfg = ConfigParser.ConfigParser()
+		cfg.read( configFilename )
+		
+		# server config
+		self.__url = cfg.get( 'api', 'server' )
+		self.__repeat = cfg.getint( 'api', 'repeat' )
+
+		if not timeout:
+			self.__timeout = cfg.getint( 'api', 'timeout' )
+	
+		# client config
+		if not auth:
+			self.__auth = cfg.get( 'client', 'auth' )
+
+		return
 
 	
 	def _call( self, methodName, *args ):
 		""" call rpc method """
 
-                for no in range( self.repeat+1 ):
+		# if auth not input 
+		if args[0] in ('', '<YOUR_API_KEY>') and self.__auth:
+			a = list(args)
+			a.remove( args[0] )
+			a.insert(0, self.__auth )
+			args = a
+
+		# call rpc method
+                for no in range( self.__repeat+1 ):
 
                         try:
                                 methodTest = getattr( self.__server, methodName )
@@ -66,6 +122,7 @@ class SiUXclient(siuxmethodlib.SiUXmethod):
 			if ret['status'] < 500:
 				break
 
+			time.sleep(1)
 
 		return ret
 
