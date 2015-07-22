@@ -95,11 +95,14 @@ class SiUXclient(siuxmethodlib.SiUXmethod):
 		""" call rpc method """
 
 		# if auth not input 
-		if args[0] in ('', '<YOUR_API_KEY>') and self.__auth:
-			a = list(args)
-			a.remove( args[0] )
-			a.insert(0, self.__auth )
-			args = a
+		try:
+			if args[0] in ('', '<YOUR_API_KEY>') and self.__auth:
+				a = list(args)
+				a.remove( args[0] )
+				a.insert(0, self.__auth )
+				args = a
+		except:
+			pass
 
 		# call rpc method
                 for no in range( self.__repeat+1 ):
