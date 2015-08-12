@@ -1,7 +1,6 @@
 #!/usr/bin/python
 
 import pprint, sys
-
 sys.path.append( '../src' )
 import siuxlib
 
