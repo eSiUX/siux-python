@@ -36,7 +36,7 @@ What is different for each method is data parameter, that holds method specific 
 If method returns 200 OK status there will be data section with particular result for each method.
 
 
-Scenario 1 - list all your sources
+**Scenario 1 - list all your sources**
 
 In this scenario you will list all your sources in siux system.
 
@@ -57,7 +57,7 @@ if retList['statusCode'] == 'OK':
 For little bit more explanatory way you can look to example/example_source_list.py
 
 
-Scenario 2 - add source, check source
+**Scenario 2 - add source, check source**
 
 This scenario describes basic source workflow.
 
@@ -67,7 +67,7 @@ This scenario describes basic source workflow.
 4. deactivate check
 
 
-1. add desired source to system
+**1. add desired source to system**
 For this action there is method addSource
 
 struct sourceAdd( name, url )
@@ -75,7 +75,7 @@ struct sourceAdd( name, url )
 
 name - name of source you want to display in siux system.
 url - url to be monitored
-parameters - optional aditonal parameters to setup check beahaviour
+parameters - optional additonal parameters to setup check behaviour
 
 Python: example/example_source_add.py
 ```
@@ -87,17 +87,17 @@ retValue= S.sourceAdd( name , url)
 sourceId=retList['data']['sourceId']
 ```
 
-2. check source
+**2. check source**
 This action allows you to review setup values. At this point check is executed on regular basis according
-choosen (default) time schema (every 60 seconds) .
+chosen (default) time schema (every 60 seconds) .
 
 ```
 S = siuxlib.SiUXclient( auth = auth )
 retList = S.sourceInfo(sourceId)
 ```
 
-3. add regular source check
-You ca use example/example_source_check.py to check your web sites regulary as a cron script
+**3. add regular source check**
+You ca use example/source_check.py to check your web sites regular basis as a cron script
 
 
 
