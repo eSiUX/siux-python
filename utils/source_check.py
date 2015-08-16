@@ -12,7 +12,6 @@ import siuxlib
 
 # config
 auth = '<YOUR_API_KEY>'
-auth = 'dbfafcbf1e6dc43c1f759312ad2d4d83'
 
 # boundary in seconds
 checkBoundary = 65
