@@ -40,7 +40,7 @@ If method returns 200 OK status there will be data section with particular resul
 
 In this scenario you will list all your sources in siux system.
 
-The simpliest code to get this info is (example/example/source_list_simple.py)
+The simpliest code to get this info is [example/example/source_list_simple.py](https://github.com/eSiUX/siux-python/blob/master/example/example_source_list_info.py)
 ```
 #!/usr/bin/python
 import sys
@@ -54,7 +54,7 @@ if retList['statusCode'] == 'OK':
 		print line
 ```
 
-For little bit more explanatory way you can look to example/example_source_list.py
+For little bit more explanatory way you can look to [example/example_source_list.py](https://github.com/eSiUX/siux-python/blob/master/example/example_source_list.py)
 
 
 **Scenario 2 - add source, check source**
@@ -78,7 +78,7 @@ name - name of source you want to display in siux system.
 url - url address to be monitored
 parameters - optional additonal parameters to setup check behaviour
 
-Python: example/example_source_add.py
+Python: [example/example_source_add.py](https://github.com/eSiUX/siux-python/blob/master/example/example_source_add.py)
 ```
 S = siuxlib.SiUXclient( auth=auth )
 name = "Your website name"
@@ -102,11 +102,10 @@ retList = S.sourceInfo( sourceId )
 
 ***2.3. add regular source check***
 
-You ca use utils/source_check.py to check your web sites regular basis as a cron script
+You ca use [utils/source_check.py](https://github.com/eSiUX/siux-python/blob/master/utils/sources_check_lib.py) to check your web sites regular basis as a cron script
 
 
 ***2.4. deactivate check***
 
 todo ...
-
 
