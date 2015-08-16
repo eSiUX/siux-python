@@ -67,7 +67,8 @@ This scenario describes basic source workflow.
 4. deactivate check
 
 
-**1. add desired source to system**
+***2.1. add desired source to system***
+
 For this action there is method addSource
 
 struct sourceAdd( name, url )
@@ -87,7 +88,9 @@ retValue= S.sourceAdd( name , url )
 sourceId=retList['data']['sourceId']
 ```
 
-**2. check source**
+
+***2.2. check source***
+
 This action allows you to review setup values. At this point check is executed on regular basis according
 chosen (default) time schema (every 60 seconds) .
 
@@ -96,9 +99,14 @@ S = siuxlib.SiUXclient( auth=auth )
 retList = S.sourceInfo( sourceId )
 ```
 
-**3. add regular source check**
+
+***2.3. add regular source check***
+
 You ca use example/source_check.py to check your web sites regular basis as a cron script
 
 
+***2.4. deactivate check***
+
+todo ...
 
 
