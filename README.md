@@ -49,8 +49,8 @@ import siuxlib
 auth = '<YOUR_API_KEY>'
 S = siuxlib.SiUXclient( auth=auth )
 retList = S.sourceList()
-if retList['statusCode'] == 'OK':
-	for line in retList['data']:
+if retList[ 'statusCode' ] == 'OK':
+	for line in retList[ 'data' ]:
 		print line
 ```
 
@@ -74,18 +74,18 @@ For this action there is method addSource
 struct sourceAdd( name, url )
 
 
-name - name of source you want to display in siux system.
-url - url address to be monitored
-parameters - optional additonal parameters to setup check behaviour
+* name - name of source you want to display in siux system.
+* url - url address to be monitored
+* parameters - optional additonal parameters to setup check behaviour
 
 Python: [example/example_source_add.py](https://github.com/eSiUX/siux-python/blob/master/example/example_source_add.py)
 ```
 S = siuxlib.SiUXclient( auth=auth )
 name = "Your website name"
 url = "www.your-website-url.com";
-retValue= S.sourceAdd( name , url )
+retAdd = S.sourceAdd( name , url )
 # if status code is not ok  sourceId will not be present in result
-sourceId=retList['data']['sourceId']
+sourceId = retAdd[ 'data' ][ 'sourceId' ]
 ```
 
 
@@ -96,7 +96,7 @@ chosen (default) time schema (every 60 seconds) .
 
 ```
 S = siuxlib.SiUXclient( auth=auth )
-retList = S.sourceInfo( sourceId )
+retInfo = S.sourceInfo( sourceId )
 ```
 
 
