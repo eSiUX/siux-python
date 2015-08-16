@@ -102,7 +102,7 @@ retList = S.sourceInfo( sourceId )
 
 ***2.3. add regular source check***
 
-You ca use example/source_check.py to check your web sites regular basis as a cron script
+You ca use utils/source_check.py to check your web sites regular basis as a cron script
 
 
 ***2.4. deactivate check***
