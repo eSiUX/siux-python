@@ -1,8 +1,9 @@
 #!/usr/bin/python
 """
-	Script returns all sources list
+	Script returns all sources/checks list
 """
-import sys
+import sys, pprint
+
 sys.path.append( '../src' )
 import siuxlib
 
@@ -13,12 +14,20 @@ auth = '<YOUR_API_KEY>'
 S = siuxlib.SiUXclient( auth = auth )
 
 # source.list()
-print "--- source.list( %s ) ---- " % auth
-retList = S.sourceList( auth )
+print "--- source.list() ---- "
+retList = S.sourceList()
 
-#check response code from server
-if retList['statusCode'] == 'OK':
+# check response code from server
+if retList['statusCode'] != 'OK':
+	pprint.pprint( retList )
+	sys.exit(1)
 
-	for line in retList['data']:
+# output
+for line in retList['data']:
 
-		print line
+	print line
+	print
+
+# complete
+print
+print ".done"

@@ -8,10 +8,10 @@ Run example:
 
 `# cd example`
 
-`# vim example_source.py`
+`# vim example_source_list_info.py`
 ... [change YOUR_API_KEY]
 
-`# python example_source.py`
+`# python example_source_list_info.py`
 
 Return values
 
@@ -46,9 +46,9 @@ The simpliest code to get this info is (example/example/source_list_simple.py)
 import sys
 sys.path.append( '../src' )
 import siuxlib
-auth = '<your_api_key>'
+auth = '<YOUR_API_KEY>'
 S = siuxlib.SiUXclient( auth=auth )
-retList = S.sourceList(auth)
+retList = S.sourceList()
 if retList['statusCode'] == 'OK':
 	for line in retList['data']:
 		print line
@@ -74,15 +74,15 @@ struct sourceAdd( name, url )
 
 
 name - name of source you want to display in siux system.
-url - url to be monitored
+url - url address to be monitored
 parameters - optional additonal parameters to setup check behaviour
 
 Python: example/example_source_add.py
 ```
-S = siuxlib.SiUXclient( auth = auth )
-name = " your website name "
+S = siuxlib.SiUXclient( auth=auth )
+name = "Your website name"
 url = "www.your-website-url.com";
-retValue= S.sourceAdd( name , url)
+retValue= S.sourceAdd( name , url )
 # if status code is not ok  sourceId will not be present in result
 sourceId=retList['data']['sourceId']
 ```
@@ -92,8 +92,8 @@ This action allows you to review setup values. At this point check is executed o
 chosen (default) time schema (every 60 seconds) .
 
 ```
-S = siuxlib.SiUXclient( auth = auth )
-retList = S.sourceInfo(sourceId)
+S = siuxlib.SiUXclient( auth=auth )
+retList = S.sourceInfo( sourceId )
 ```
 
 **3. add regular source check**

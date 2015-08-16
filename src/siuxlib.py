@@ -31,78 +31,22 @@ class TimeoutTransport (xmlrpclib.Transport):
 class SiUXclient(siuxmethodlib.SiUXmethod):
 
 
-	def __init__( self, auth='', timeout=0 ):
+	def __init__( self, auth='', timeout=10 ):
 		""" init """
 
-		if auth == '<YOUR_API_KEY>':
-			auth = ''
-
-		# read config
-		self.__config( auth=auth, timeout=timeout )
-
-		# server connect
-		t = TimeoutTransport( timeout=self.__timeout )
-		self.__server = xmlrpclib.ServerProxy( self.__url, transport=t)
-
-
-	def __config( self, auth='', timeout=0 ):
-		""" read data from config file """
+		self._auth = auth
 
 		# default config
 		self.__repeat = 3
 		self.__url = 'http://api.esiux.net:3035/RPC2'
 
-		# config filenames	
-		filenames = [ 'siux.conf', '../siux.conf' ]
-		if os.environ.get( 'SIUX_CONFIG_FILE' ):
-			filenames.append( os.environ['SIUX_CONFIG_FILE'] )
-
-		# filename exist?
-		configFilename = None
-		for filename in filenames:
-			if os.path.isfile( filename ):
-				configFilename = filename
-		
-		# default config
-		if not configFilename:
-
-			if not timeout:
-				self.__timeout = 10
-
-			self.__auth = auth
-
-			return
-
-		# config init
-		cfg = ConfigParser.ConfigParser()
-		cfg.read( configFilename )
-		
-		# server config
-		self.__url = cfg.get( 'api', 'server' )
-		self.__repeat = cfg.getint( 'api', 'repeat' )
-
-		if not timeout:
-			self.__timeout = cfg.getint( 'api', 'timeout' )
-	
-		# client config
-		if not auth:
-			self.__auth = cfg.get( 'client', 'auth' )
-
-		return
+		# server connect
+		t = TimeoutTransport( timeout=timeout )
+		self.__server = xmlrpclib.ServerProxy( self.__url, transport=t)
 
 	
 	def _call( self, methodName, *args ):
 		""" call rpc method """
-
-		# if auth not input 
-		try:
-			if args[0] in ('', '<YOUR_API_KEY>') and self.__auth:
-				a = list(args)
-				a.remove( args[0] )
-				a.insert(0, self.__auth )
-				args = a
-		except:
-			pass
 
 		# call rpc method
                 for no in range( self.__repeat+1 ):
@@ -141,6 +85,6 @@ if __name__ == '__main__':
 	# init
 	S = SiUXclient( auth=auth )
 
-	# test
-	pprint.pprint( S.sourceList(auth) )
+	# test method
+	pprint.pprint( S.sourceList() )
 
