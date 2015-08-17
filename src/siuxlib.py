@@ -58,12 +58,12 @@ class SiUXclient(siuxmethodlib.SiUXmethod):
                         # rpc error
                         except rpc.Fault, fe:
                                 log.ni( 'RPC Err: method %s(%s) : %s [repeat=%d]', (methodName, str(args), fe, no), ERR=3 )
-                                ret = { 'status':503, 'statusMessage':'Service Unavailable', 'errorMessage':str(fe) }
+                                ret = { 'status':503, 'statusMessage':'Service Unavailable', 'errorMessage':str(fe),'statusCode':'SERVER_UNAVAILABLE'}
 
                         # method error
                         except Exception, msg:
                                 log.ni( 'RPC Err: method %s(%s) : %s [repeat=%d]', (methodName, str(args), msg, no), ERR=3 )
-                                ret = { 'status':500, 'statusMessage':'Server Error', 'errorMessage':str(msg) }
+                                ret = { 'status':500, 'statusMessage':'Server Error', 'errorMessage':str(msg), 'statusCode':'SERVER_ERR' }
 				
 
 			if ret['status'] < 500:
@@ -73,7 +73,27 @@ class SiUXclient(siuxmethodlib.SiUXmethod):
 
 		return ret
 
+
+	def methodList( self ):
+		"list methods for SiUX api"
 	
+		try:
+			listMethod = self.__server.system.listMethods()
+              	except Exception, msg:
+                	return { 'status':500, 'statusMessage':'Server Error', 'errorMessage':str(msg) }
+
+		data = []
+		found = 0
+		for methodName in listMethod:
+
+			if methodName.startswith( 'system.'):
+				continue
+
+			data.append( {'methodName':methodName} )
+			found = found + 1
+
+                return { 'status':200, 'statusMessage':'OK', 'statusCode':'OK', 'data':data, 'found':found }
+
 
 if __name__ == '__main__':
 
@@ -85,6 +105,8 @@ if __name__ == '__main__':
 	# init
 	S = SiUXclient( auth=auth )
 
+	# test method list
+	pprint.pprint( S.methodList() )
+
 	# test method
 	pprint.pprint( S.sourceList() )
-
