@@ -58,12 +58,12 @@ class SiUXclient(siuxmethodlib.SiUXmethod):
                         # rpc error
                         except rpc.Fault, fe:
                                 log.ni( 'RPC Err: method %s(%s) : %s [repeat=%d]', (methodName, str(args), fe, no), ERR=3 )
-                                ret = { 'status':503, 'statusMessage':'Service Unavailable', 'errorMessage':str(fe),'statusCode':'SERVER_UNAVAILABLE'}
+                                ret = { 'status':503, 'statusMessage':'Service Unavailable', 'errorMessage':str(fe), 'statusCode':'SERVER_UNAVAILABLE', 'found':0 }
 
                         # method error
                         except Exception, msg:
                                 log.ni( 'RPC Err: method %s(%s) : %s [repeat=%d]', (methodName, str(args), msg, no), ERR=3 )
-                                ret = { 'status':500, 'statusMessage':'Server Error', 'errorMessage':str(msg), 'statusCode':'SERVER_ERR' }
+                                ret = { 'status':500, 'statusMessage':'Server Error', 'errorMessage':str(msg), 'statusCode':'SERVER_ERR', 'found':0 }
 				
 
 			if ret['status'] < 500:
@@ -80,7 +80,7 @@ class SiUXclient(siuxmethodlib.SiUXmethod):
 		try:
 			listMethod = self.__server.system.listMethods()
               	except Exception, msg:
-                	return { 'status':500, 'statusMessage':'Server Error', 'errorMessage':str(msg) }
+                	return { 'status':500, 'statusMessage':'Server Error', 'errorMessage':str(msg), 'statusCode':'SERVER_ERR', 'found':0 }
 
 		data = []
 		found = 0
@@ -89,7 +89,17 @@ class SiUXclient(siuxmethodlib.SiUXmethod):
 			if methodName.startswith( 'system.'):
 				continue
 
-			data.append( {'methodName':methodName} )
+			methods = []
+			no = 0
+			for name in methodName.split('.'):
+				if no == 0:
+					methods.append( name.lower() )
+				else:
+					methods.append( '%s%s' % (name[0].upper(), name[1:].lower()) )
+				no = no + 1
+			method = ''.join(methods)
+
+			data.append( {'methodName':method} )
 			found = found + 1
 
                 return { 'status':200, 'statusMessage':'OK', 'statusCode':'OK', 'data':data, 'found':found }
