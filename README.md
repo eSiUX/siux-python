@@ -1,4 +1,4 @@
-# siux-python
+# siux-python [![Build status](https://api.travis-ci.org/eSiUX/siux-python.svg?branch=master)](https://travis-ci.org/eSiUX/siux-python)
 
 Python API library (src, example)
 
