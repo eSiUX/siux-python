@@ -26,7 +26,8 @@ class TestSummary(unittest.TestCase):
 
 		# todo: bugfix
 		blacklist = ( 'sourceDomainList', 'sourceDropoutList', 'sourceStatDailyList', 'sourceStatMonthlyList', 'dropoutList',\
-			 'sourceStatList' , 'availabilityList', 'testValueList')
+			'sourceStatList' , 'availabilityList', 'testValueList', 'filterList', 'maintenanceList', 'operatorLogList',\
+			'seleniumAdvancedList', 'seleniumList')
 		
 		for line in retMethod[ 'data' ]:
 
