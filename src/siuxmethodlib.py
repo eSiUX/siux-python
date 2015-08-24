@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-# generate date: 2015-16-24 14:16:17
+# generate date: 2015-08-24 14:45:29
 
 
 class SiUXmethod:
@@ -18,7 +18,7 @@ class SiUXmethod:
 		" Method apikeyDelete() "
 		return self._call( 'apikey.delete', self._auth, apiId )
 
-	def apikeyList( self,  ):
+	def apikeyList( self  ):
 		" Method apikeyList() "
 		return self._call( 'apikey.list', self._auth )
 
@@ -38,7 +38,7 @@ class SiUXmethod:
 	# --- 
 	# BROWSER 
 
-	def browserList( self,  ):
+	def browserList( self  ):
 		" Method browserList() "
 		return self._call( 'browser.list', self._auth )
 
@@ -82,7 +82,7 @@ class SiUXmethod:
 		" Method contactGroupInfo() "
 		return self._call( 'contact.group.info', self._auth, contactGroupId )
 
-	def contactGroupList( self,  ):
+	def contactGroupList( self  ):
 		" Method contactGroupList() "
 		return self._call( 'contact.group.list', self._auth )
 
@@ -102,7 +102,7 @@ class SiUXmethod:
 	# --- 
 	# COUNTRY 
 
-	def countryList( self,  ):
+	def countryList( self  ):
 		" Method countryList() "
 		return self._call( 'country.list', self._auth )
 
@@ -110,7 +110,7 @@ class SiUXmethod:
 	# --- 
 	# DOMAIN 
 
-	def domainList( self,  ):
+	def domainList( self  ):
 		" Method domainList() "
 		return self._call( 'domain.list', self._auth )
 
@@ -150,7 +150,7 @@ class SiUXmethod:
 		" Method filterList() "
 		return self._call( 'filter.list', self._auth, sourceId )
 
-	def filterViewList( self,  ):
+	def filterViewList( self  ):
 		" Method filterViewList() "
 		return self._call( 'filter.view.list', self._auth )
 
@@ -158,7 +158,7 @@ class SiUXmethod:
 	# --- 
 	# LANG 
 
-	def langList( self,  ):
+	def langList( self  ):
 		" Method langList() "
 		return self._call( 'lang.list', self._auth )
 
@@ -178,7 +178,7 @@ class SiUXmethod:
 		" Method operatorInfo() "
 		return self._call( 'operator.info', self._auth, operatorId )
 
-	def operatorList( self,  ):
+	def operatorList( self  ):
 		" Method operatorList() "
 		return self._call( 'operator.list', self._auth )
 
@@ -206,7 +206,7 @@ class SiUXmethod:
 		" Method seleniumAdvancedInfo() "
 		return self._call( 'selenium.advanced.info', self._auth, advancedId )
 
-	def seleniumAdvancedList( self,  ):
+	def seleniumAdvancedList( self  ):
 		" Method seleniumAdvancedList() "
 		return self._call( 'selenium.advanced.list', self._auth )
 
@@ -214,7 +214,7 @@ class SiUXmethod:
 		" Method seleniumInfo() "
 		return self._call( 'selenium.info', self._auth, seleniumId )
 
-	def seleniumList( self,  ):
+	def seleniumList( self  ):
 		" Method seleniumList() "
 		return self._call( 'selenium.list', self._auth )
 
@@ -230,7 +230,7 @@ class SiUXmethod:
 		" Method seleniumTestInfo() "
 		return self._call( 'selenium.test.info', self._auth, seleniumTestId )
 
-	def seleniumTestList( self,  ):
+	def seleniumTestList( self  ):
 		" Method seleniumTestList() "
 		return self._call( 'selenium.test.list', self._auth )
 
@@ -286,7 +286,7 @@ class SiUXmethod:
 		" Method sourceGroupInfo() "
 		return self._call( 'source.group.info', self._auth, sourceGroupId )
 
-	def sourceGroupList( self,  ):
+	def sourceGroupList( self  ):
 		" Method sourceGroupList() "
 		return self._call( 'source.group.list', self._auth )
 
@@ -330,7 +330,7 @@ class SiUXmethod:
 	# --- 
 	# TIMEZONE 
 
-	def timezoneList( self,  ):
+	def timezoneList( self  ):
 		" Method timezoneList() "
 		return self._call( 'timezone.list', self._auth )
 
