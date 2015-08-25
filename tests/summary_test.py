@@ -26,7 +26,7 @@ class TestSummary(unittest.TestCase):
 
 		# todo: bugfix
 		blacklist = ( 'sourceDomainList', 'sourceDropoutList', 'sourceStatDailyList', 'sourceStatMonthlyList', 'dropoutList',\
-			'sourceStatList' , 'availabilityList', 'testValueList', 'filterList', 'maintenanceList', 'operatorLogList',\
+			'sourceStatList' , 'availabilityList', 'filterList', 'operatorLogList',\
 			'seleniumAdvancedList', 'seleniumList')
 		
 		for line in retMethod[ 'data' ]:
@@ -42,6 +42,10 @@ class TestSummary(unittest.TestCase):
 			# run list method
 			retList = self.runList( line['methodName'] )
 
+			# method not implemented
+			if retList[ 'status' ] == 501:
+				continue
+
 			# test parameters
 			self.assertTrue( 'status' in retList )
 			self.assertTrue( 'statusCode' in retList )
@@ -56,7 +60,14 @@ class TestSummary(unittest.TestCase):
 		try:
 			methodTest = getattr( self.__siux, method )
 			ret = methodTest()
-              	except Exception, msg:
-                	return { 'status':500, 'statusMessage':'Server Error', 'errorMessage':str(msg), 'statusCode':'SERVER_ERR', 'found':0 }
+
+              	except Exception, emsg:
+
+			msg501 = "SiUXclient instance has no attribute '%s'" % (method)
+			if str(emsg) == msg501:
+				return { 'status':501, 'statusMessage':'Not Implemented', 'errorMessage':str(emsg), 'statusCode':'NOT_IMPLEMENTED', 'found':0 }
+
+                	return { 'status':500, 'statusMessage':'Server Error', 'errorMessage':str(emsg), 'statusCode':'SERVER_ERR', 'found':0 }
 			
 		return ret	
+

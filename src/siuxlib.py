@@ -62,9 +62,14 @@ class SiUXclient(siuxmethodlib.SiUXmethod):
 
                         # method error
                         except Exception, msg:
-                                log.ni( 'RPC Err: method %s(%s) : %s [repeat=%d]', (methodName, str(args), msg, no), ERR=3 )
-                                ret = { 'status':500, 'statusMessage':'Server Error', 'errorMessage':str(msg), 'statusCode':'SERVER_ERR', 'found':0 }
-				
+				if msg == "SiUXclient instance has no attribute '%s'" % (methodName):
+                                	log.ni( 'RPC Err: method %s(%s) : %s [repeat=%d]', (methodName, str(args), msg, no), ERR=3 )
+                                	ret = { 'status':501, 'statusMessage':'Not Implemented', 'errorMessage':str(msg), 'statusCode':'NOT_IMPLEMENTED', 'found':0 }
+					break
+			
+				log.ni( 'RPC Err: method %s(%s) : %s [repeat=%d]', (methodName, str(args), msg, no), ERR=3 )
+				ret = { 'status':500, 'statusMessage':'Server Error', 'errorMessage':str(msg), 'statusCode':'SERVER_ERR', 'found':0 }
+			
 
 			if ret['status'] < 500:
 				break
@@ -79,7 +84,13 @@ class SiUXclient(siuxmethodlib.SiUXmethod):
 	
 		try:
 			listMethod = self.__server.system.listMethods()
+
+              	except rpc.Fault, fe:
+                	log.ni( 'RPC Err: method system.listMethods() : %s', (fe,), ERR=3 )
+                      	ret = { 'status':503, 'statusMessage':'Service Unavailable', 'errorMessage':str(fe), 'statusCode':'SERVER_UNAVAILABLE', 'found':0 }
+
               	except Exception, msg:
+                	log.ni( 'RPC Err: method system.listMethods() : %s', (msg,), ERR=3 )
                 	return { 'status':500, 'statusMessage':'Server Error', 'errorMessage':str(msg), 'statusCode':'SERVER_ERR', 'found':0 }
 
 		data = []
