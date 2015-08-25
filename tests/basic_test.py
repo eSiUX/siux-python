@@ -32,8 +32,8 @@ class TestStringMethods(unittest.TestCase):
 		self.assertTrue( 'activeNo' in retList )
 		self.assertTrue( isinstance( retList['activeNo']  ,int ))
 
-		self.assertTrue( 'cacheTime' in retList )
-		self.assertTrue( isinstance( retList['cacheTime']  ,float ))
+		#self.assertTrue( 'cacheTime' in retList )
+		#self.assertTrue( isinstance( retList['cacheTime']  ,float ))
 
 		self.assertTrue( 'data' in retList )
 
