@@ -1,7 +1,10 @@
 #!/usr/bin/python
-import unittest,pprint,sys
+
+import unittest, pprint, sys
+
 sys.path.append( '../src' )
 import siuxlib
+
 
 class TestSourceInfo(unittest.TestCase):
 
@@ -154,7 +157,8 @@ class TestSourceInfo(unittest.TestCase):
 
 		if retList['statusCode'] == 'OK':
 
-			self.assertGreater(retList['data'].__len__(),0)
+			if sys.version_info.major == 2 and sys.version_info.minor >= 7:
+				self.assertGreater(retList['data'].__len__(),0)
 
 			for line in retList['data']:
 
