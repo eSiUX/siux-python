@@ -4,7 +4,7 @@
 """
 import sys, pprint
 
-sys.path.append( '../src' )
+sys.path.append( '../siux' )
 import siuxlib
 
 # client api key

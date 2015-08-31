@@ -6,7 +6,7 @@
 """
 
 import  sys, pprint,time, datetime, urlparse
-sys.path.append( '../src' )
+sys.path.append( '../siux' )
 import siuxlib
 
 if len(sys.argv) <= 1:

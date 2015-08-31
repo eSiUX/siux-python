@@ -7,7 +7,7 @@
 """
 
 import  sys, time, datetime, pprint
-sys.path.append( '../src' )
+sys.path.append( '../siux' )
 import siuxlib
 
 # config

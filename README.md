@@ -1,6 +1,6 @@
 # siux-python [![Build status](https://api.travis-ci.org/eSiUX/siux-python.svg?branch=master)](https://travis-ci.org/eSiUX/siux-python)
 
-Python API library (src, example)
+Python API library (example, tests, utils, ...)
 
 Simple example exporting siux sources list. Source is one monitored domain. In export you can find basic information about source , last ok and error statuses.
 
@@ -44,7 +44,7 @@ The simpliest code to get this info is [example/source_list_simple.py](https://g
 ```
 #!/usr/bin/python
 import sys
-sys.path.append( '../src' )
+sys.path.append( '../siux' )
 import siuxlib
 auth = '<YOUR_API_KEY>'
 S = siuxlib.SiUXclient( auth=auth )

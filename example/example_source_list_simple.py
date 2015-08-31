@@ -2,7 +2,7 @@
 
 # minimalistic way how to get source list
 import sys
-sys.path.append( '../src' )
+sys.path.append( '../siux' )
 import siuxlib
 
 auth = '<YOUR_API_KEY>'

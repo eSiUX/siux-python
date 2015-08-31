@@ -4,7 +4,7 @@ SiUX
 To use (with caution), simply do::
 
     >>> import sys
-    >>> sys.path.append( '../src' )
+    >>> sys.path.append( '../siux' )
     >>> import siuxlib
     >>> auth = '<YOUR_API_KEY>'
     >>> S = siuxlib.SiUXclient( auth=auth )

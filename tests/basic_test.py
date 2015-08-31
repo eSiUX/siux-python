@@ -1,5 +1,5 @@
 import unittest,pprint,sys
-sys.path.append( '../src' )
+sys.path.append( '../siux' )
 import siuxlib
 
 class TestStringMethods(unittest.TestCase):
