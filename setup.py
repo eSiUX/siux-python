@@ -29,6 +29,9 @@ setup(
 
 	# MIT license
 	'License :: OSI Approved :: MIT License',
+
+	# List trove classifiers
+	'Topic :: System :: Monitoring',
 	
 	# Specify the Python versions you support here. In particular, ensure
     	# that you indicate whether you support Python 2, Python 3 or both.
