@@ -3,7 +3,6 @@ SiUX
 
 To use (with caution), simply do::
 
-    >>> import funniest
     >>> import sys
     >>> sys.path.append( '../src' )
     >>> import siuxlib
