@@ -107,5 +107,9 @@ You ca use [utils/source_check.py](https://github.com/eSiUX/siux-python/blob/mas
 
 ***2.4. deactivate check***
 
-todo ...
+```
+sourceId = 123 # your source ID
+S = siuxlib.SiUXclient( auth=auth )
+retDeactivate = S.sourceDeactive( sourceId )
+```
 
