@@ -19,12 +19,16 @@ setup(
   url = 'https://github.com/eSiUX/siux-python/', # use the URL to the github repo
   download_url = 'https://github.com/eSiUX/siux-python/archive/master.zip', # I'll explain this in a second
   keywords = ['monitoring', 'testing', 'website' ], # arbitrary keywords
+  license='MIT',
   classifiers = [
     	# How mature is this project? Common values are
     	#   3 - Alpha
     	#   4 - Beta
     	#   5 - Production/Stable
     	'Development Status :: 4 - Beta',
+
+	# MIT license
+	'License :: OSI Approved :: MIT License',
 	
 	# Specify the Python versions you support here. In particular, ensure
     	# that you indicate whether you support Python 2, Python 3 or both.

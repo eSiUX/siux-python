@@ -1,4 +1,5 @@
 include *.rst
+include LICENCE.txt
 include .gitignore
 include .travis.yml
 recursive-include siux *
