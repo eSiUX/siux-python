@@ -24,7 +24,7 @@ url = "www.esiux.net"
 retList = S.sourceAdd( name , url )
 
 # print return value in case of debuging
-pprint.print( retList )
+pprint.pprint( retList )
 
 #check response code from server
 if retList['statusCode'] == 'OK':
