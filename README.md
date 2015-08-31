@@ -2,6 +2,18 @@
 
 Python API library (example, tests, utils, ...)
 
+## How to install
+
+You can install siux using **pip**
+
+    # pip install -U siux
+
+or via sources:
+
+    # python setup.py install
+
+## Example
+
 Simple example exporting siux sources list. Source is one monitored domain. In export you can find basic information about source , last ok and error statuses.
 
 Run example:
