@@ -1,1 +1,8 @@
-include README.rst
+include *.rst
+include .gitignore
+include .travis.yml
+recursive-include siux *
+recursive-include example *
+recursive-include tests *
+recursive-include utils *
+recursive-exclude * *.py[co]

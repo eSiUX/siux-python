@@ -1,4 +1,8 @@
 from distutils.core import setup
+import sys
+
+if sys.version_info < (2, 7):
+    sys.exit("Python 2.7 or newer is required for siux-python")
 
 def readme():
     with open('README.rst') as f:
