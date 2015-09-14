@@ -25,9 +25,8 @@ class TestSummary(unittest.TestCase):
 		retMethod = self.__siux.methodList()
 
 		# todo: bugfix
-		blacklist = ( 'sourceDomainList', 'sourceDropoutList', 'sourceStatDailyList', 'sourceStatMonthlyList', 'dropoutList',\
-			'sourceStatList' , 'availabilityList', 'filterList', 'operatorLogList',\
-			'seleniumAdvancedList', 'seleniumList')
+		blacklist = ( 'sourceDropoutList', 'sourceStatDailyList', 'sourceStatMonthlyList', 'dropoutList',\
+			'sourceStatList' , 'availabilityList', 'seleniumAdvancedList', 'seleniumList')
 		
 		for line in retMethod[ 'data' ]:
 
@@ -40,6 +39,7 @@ class TestSummary(unittest.TestCase):
 				continue
 
 			# run list method
+			print line
 			retList = self.runList( line['methodName'] )
 
 			# method not implemented
