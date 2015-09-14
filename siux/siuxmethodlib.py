@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-# generate date: 2015-08-26 11:03:55
+# generate date: 2015-09-11 15:20:40
 
 
 class SiUXmethod:
@@ -14,9 +14,9 @@ class SiUXmethod:
 		" Method apikeyAdd() "
 		return self._call( 'apikey.add', self._auth, name, readOnly )
 
-	def apikeyDelete( self,  apiId=0 ):
+	def apikeyDelete( self,  apikeyId=0 ):
 		" Method apikeyDelete() "
-		return self._call( 'apikey.delete', self._auth, apiId )
+		return self._call( 'apikey.delete', self._auth, apikeyId )
 
 	def apikeyList( self  ):
 		" Method apikeyList() "
@@ -26,21 +26,13 @@ class SiUXmethod:
 	# --- 
 	# AVAILABILITY 
 
-	def availabilityInfo( self,  dateTo=20140101 ):
+	def availabilityInfo( self,  dateTo=20150901 ):
 		" Method availabilityInfo() "
 		return self._call( 'availability.info', self._auth, dateTo )
 
-	def availabilityList( self,  dateInput=20140101, history=30, sourceId=0 ):
+	def availabilityList( self,  dateInput=20150901, history=30, sourceId=0 ):
 		" Method availabilityList() "
 		return self._call( 'availability.list', self._auth, dateInput, history, sourceId )
-
-
-	# --- 
-	# BROWSER 
-
-	def browserList( self  ):
-		" Method browserList() "
-		return self._call( 'browser.list', self._auth )
 
 
 	# --- 
@@ -56,69 +48,9 @@ class SiUXmethod:
 
 
 	# --- 
-	# CONTACT 
-
-	def contactAdd( self,  name='', value='', parametr={}, contactGroup=[] ):
-		" Method contactAdd() "
-		return self._call( 'contact.add', self._auth, name, value, parametr, contactGroup )
-
-	def contactDeactive( self,  value='' ):
-		" Method contactDeactive() "
-		return self._call( 'contact.deactive', self._auth, value )
-
-	def contactDelete( self,  contactId=0 ):
-		" Method contactDelete() "
-		return self._call( 'contact.delete', self._auth, contactId )
-
-	def contactGroupAdd( self,  name='', parametr={} ):
-		" Method contactGroupAdd() "
-		return self._call( 'contact.group.add', self._auth, name, parametr )
-
-	def contactGroupDelete( self,  contactGroupId=0 ):
-		" Method contactGroupDelete() "
-		return self._call( 'contact.group.delete', self._auth, contactGroupId )
-
-	def contactGroupInfo( self,  contactGroupId=0 ):
-		" Method contactGroupInfo() "
-		return self._call( 'contact.group.info', self._auth, contactGroupId )
-
-	def contactGroupList( self  ):
-		" Method contactGroupList() "
-		return self._call( 'contact.group.list', self._auth )
-
-	def contactInfo( self,  contactId=0 ):
-		" Method contactInfo() "
-		return self._call( 'contact.info', self._auth, contactId )
-
-	def contactList( self,  status='all' ):
-		" Method contactList() "
-		return self._call( 'contact.list', self._auth, status )
-
-	def contactUpdate( self,  contactId=0, parametr={}, contactGroup=[] ):
-		" Method contactUpdate() "
-		return self._call( 'contact.update', self._auth, contactId, parametr, contactGroup )
-
-
-	# --- 
-	# COUNTRY 
-
-	def countryList( self  ):
-		" Method countryList() "
-		return self._call( 'country.list', self._auth )
-
-
-	# --- 
-	# DOMAIN 
-
-	def domainList( self  ):
-		" Method domainList() "
-		return self._call( 'domain.list', self._auth )
-
-
-	# --- 
 	# DROPOUT 
 
-	def dropoutInfo( self,  dateTo=20140101 ):
+	def dropoutInfo( self,  dateTo=20150901 ):
 		" Method dropoutInfo() "
 		return self._call( 'dropout.info', self._auth, dateTo )
 
@@ -156,11 +88,51 @@ class SiUXmethod:
 
 
 	# --- 
-	# LANG 
+	# NOTIFY 
 
-	def langList( self  ):
-		" Method langList() "
-		return self._call( 'lang.list', self._auth )
+	def notifyAdd( self,  name='', value='', parameter={}, contactGroup=[] ):
+		" Method notifyAdd() "
+		return self._call( 'notify.add', self._auth, name, value, parameter, contactGroup )
+
+	def notifyDeactive( self,  value='' ):
+		" Method notifyDeactive() "
+		return self._call( 'notify.deactive', self._auth, value )
+
+	def notifyDelete( self,  contactId=0 ):
+		" Method notifyDelete() "
+		return self._call( 'notify.delete', self._auth, contactId )
+
+	def notifyGroupAdd( self,  name='', parameter={} ):
+		" Method notifyGroupAdd() "
+		return self._call( 'notify.group.add', self._auth, name, parameter )
+
+	def notifyGroupDelete( self,  contactGroupId=0 ):
+		" Method notifyGroupDelete() "
+		return self._call( 'notify.group.delete', self._auth, contactGroupId )
+
+	def notifyGroupInfo( self,  contactGroupId=0 ):
+		" Method notifyGroupInfo() "
+		return self._call( 'notify.group.info', self._auth, contactGroupId )
+
+	def notifyGroupList( self  ):
+		" Method notifyGroupList() "
+		return self._call( 'notify.group.list', self._auth )
+
+	def notifyInfo( self,  contactId=0 ):
+		" Method notifyInfo() "
+		return self._call( 'notify.info', self._auth, contactId )
+
+	def notifyList( self,  status='all' ):
+		" Method notifyList() "
+		return self._call( 'notify.list', self._auth, status )
+
+	def notifySenderInfo( self,  dateTo=20150101 ):
+		" Method notifySenderInfo() "
+		return self._call( 'notify.sender.info', self._auth, dateTo )
+
+	def notifyUpdate( self,  contactId=0, parameter={}, contactGroup=[] ):
+		" Method notifyUpdate() "
+		return self._call( 'notify.update', self._auth, contactId, parameter, contactGroup )
 
 
 	# --- 
@@ -228,14 +200,6 @@ class SiUXmethod:
 
 
 	# --- 
-	# SENDER 
-
-	def senderInfo( self,  dateTo=20140101 ):
-		" Method senderInfo() "
-		return self._call( 'sender.info', self._auth, dateTo )
-
-
-	# --- 
 	# SOURCE 
 
 	def sourceActive( self,  sourceId=0 ):
@@ -250,7 +214,7 @@ class SiUXmethod:
 		" Method sourceDeactive() "
 		return self._call( 'source.deactive', self._auth, sourceId )
 
-	def sourceDropoutInfo( self,  sourceId=0, date='2008-01-01' ):
+	def sourceDropoutInfo( self,  sourceId=0, date='2015-09-01' ):
 		" Method sourceDropoutInfo() "
 		return self._call( 'source.dropout.info', self._auth, sourceId, date )
 
@@ -258,9 +222,9 @@ class SiUXmethod:
 		" Method sourceDropoutList() "
 		return self._call( 'source.dropout.list', self._auth, sourceId, history )
 
-	def sourceGroupAdd( self,  name='', parametr={} ):
+	def sourceGroupAdd( self,  name='', parameter={} ):
 		" Method sourceGroupAdd() "
-		return self._call( 'source.group.add', self._auth, name, parametr )
+		return self._call( 'source.group.add', self._auth, name, parameter )
 
 	def sourceGroupDelete( self,  sourceGroupId=0 ):
 		" Method sourceGroupDelete() "
@@ -286,7 +250,7 @@ class SiUXmethod:
 		" Method sourceOutputGroup() "
 		return self._call( 'source.output.group', self._auth, sourceId, tsGroup )
 
-	def sourceOutputInfo( self,  sourceId=0, date='2008-01-01', limit=2000, FromId=0, outputId=0, countrys=[], checkpointIds=[], dataView='all' ):
+	def sourceOutputInfo( self,  sourceId=0, date='2015-09-01', limit=2000, FromId=0, outputId=0, countrys=[], checkpointIds=[], dataView='all' ):
 		" Method sourceOutputInfo() "
 		return self._call( 'source.output.info', self._auth, sourceId, date, limit, FromId, outputId, countrys, checkpointIds, dataView )
 
@@ -307,13 +271,5 @@ class SiUXmethod:
 		return self._call( 'source.update', self._auth, sourceId, sourceDict )
 
 
-	# --- 
-	# TIMEZONE 
 
-	def timezoneList( self  ):
-		" Method timezoneList() "
-		return self._call( 'timezone.list', self._auth )
-
-
-
-methodArgs =  {'seleniumList': {'params': {'client': ''}, 'parent': 'selenium', 'rpcMethod': 'selenium.list'}, 'contactGroupAdd': {'params': {'parametr': {}, 'client': '', 'name': ''}, 'parent': 'contact', 'rpcMethod': 'contact.group.add'}, 'timezoneList': {'params': {'client': ''}, 'parent': 'timezone', 'rpcMethod': 'timezone.list'}, 'senderInfo': {'params': {'dateTo': 20140101, 'client': ''}, 'parent': 'sender', 'rpcMethod': 'sender.info'}, 'seleniumTestInfo': {'params': {'seleniumTestId': 0, 'client': ''}, 'parent': 'selenium', 'rpcMethod': 'selenium.test.info'}, 'sourceStatMonthlyList': {'params': {'sourceId': 0, 'client': '', 'history': 12}, 'parent': 'source', 'rpcMethod': 'source.stat.monthly.list'}, 'seleniumInfo': {'params': {'seleniumId': 0, 'client': ''}, 'parent': 'selenium', 'rpcMethod': 'selenium.info'}, 'availabilityInfo': {'params': {'dateTo': 20140101, 'client': ''}, 'parent': 'availability', 'rpcMethod': 'availability.info'}, 'sourceActive': {'params': {'sourceId': 0, 'client': ''}, 'parent': 'source', 'rpcMethod': 'source.active'}, 'operatorInfo': {'params': {'client': '', 'operatorId': 0}, 'parent': 'operator', 'rpcMethod': 'operator.info'}, 'langList': {'params': {'client': ''}, 'parent': 'lang', 'rpcMethod': 'lang.list'}, 'contactInfo': {'params': {'contactId': 0, 'client': ''}, 'parent': 'contact', 'rpcMethod': 'contact.info'}, 'sourceGroupDelete': {'params': {'client': '', 'sourceGroupId': 0}, 'parent': 'source', 'rpcMethod': 'source.group.delete'}, 'contactGroupList': {'params': {'client': ''}, 'parent': 'contact', 'rpcMethod': 'contact.group.list'}, 'contactDelete': {'params': {'contactId': 0, 'client': ''}, 'parent': 'contact', 'rpcMethod': 'contact.delete'}, 'sourceUpdate': {'params': {'sourceId': 0, 'sourceDict': {}, 'client': ''}, 'parent': 'source', 'rpcMethod': 'source.update'}, 'sourceDeactive': {'params': {'sourceId': 0, 'client': ''}, 'parent': 'source', 'rpcMethod': 'source.deactive'}, 'filterInfo': {'params': {'client': '', 'filterId': 0}, 'parent': 'filter', 'rpcMethod': 'filter.info'}, 'seleniumAdd': {'params': {'name': '', 'paramScreen': '', 'testIds': [], 'client': '', 'paramJS': 1, 'timeout': 30, 'testType': 'content', 'browser': 'chromelin'}, 'parent': 'selenium', 'rpcMethod': 'selenium.add'}, 'domainList': {'params': {'client': ''}, 'parent': 'domain', 'rpcMethod': 'domain.list'}, 'apikeyList': {'params': {'client': ''}, 'parent': 'apikey', 'rpcMethod': 'apikey.list'}, 'sourceOutputGroup': {'params': {'sourceId': 0, 'tsGroup': 0, 'client': ''}, 'parent': 'source', 'rpcMethod': 'source.output.group'}, 'sourceStatList': {'params': {'hostname': '', 'history': 7}, 'parent': 'source', 'rpcMethod': 'source.stat.list'}, 'contactDeactive': {'params': {'client': '', 'value': ''}, 'parent': 'contact', 'rpcMethod': 'contact.deactive'}, 'filterViewList': {'params': {'client': ''}, 'parent': 'filter', 'rpcMethod': 'filter.view.list'}, 'filterList': {'params': {'sourceId': 0, 'client': ''}, 'parent': 'filter', 'rpcMethod': 'filter.list'}, 'sourceList': {'params': {'client': '', 'sourceGroupId': 0}, 'parent': 'source', 'rpcMethod': 'source.list'}, 'contactUpdate': {'params': {'contactGroup': [], 'contactId': 0, 'client': '', 'parametr': {}}, 'parent': 'contact', 'rpcMethod': 'contact.update'}, 'sourceGroupList': {'params': {'client': ''}, 'parent': 'source', 'rpcMethod': 'source.group.list'}, 'operatorLogList': {'params': {'client': '', 'operatorId': 0}, 'parent': 'operator', 'rpcMethod': 'operator.log.list'}, 'seleniumAdvancedInfo': {'params': {'client': '', 'advancedId': 0}, 'parent': 'selenium', 'rpcMethod': 'selenium.advanced.info'}, 'contactGroupInfo': {'params': {'contactGroupId': 0, 'client': ''}, 'parent': 'contact', 'rpcMethod': 'contact.group.info'}, 'sourceOutputInfo': {'params': {'sourceId': 0, 'dataView': 'all', 'checkpointIds': [], 'outputId': 0, 'countrys': [], 'client': '', 'limit': 2000, 'date': '2008-01-01', 'FromId': 0}, 'parent': 'source', 'rpcMethod': 'source.output.info'}, 'countryList': {'params': {'client': ''}, 'parent': 'country', 'rpcMethod': 'country.list'}, 'sourceDropoutList': {'params': {'sourceId': 0, 'client': '', 'history': 7}, 'parent': 'source', 'rpcMethod': 'source.dropout.list'}, 'seleniumTestList': {'params': {'client': ''}, 'parent': 'selenium', 'rpcMethod': 'selenium.test.list'}, 'seleniumUpdate': {'params': {'status': 'active', 'seleniumId': 0, 'name': '', 'paramScreen': '', 'testIds': [], 'client': '', 'paramJS': 1, 'timeout': 30, 'testType': 'content', 'browser': 'chromelin'}, 'parent': 'selenium', 'rpcMethod': 'selenium.update'}, 'checkpointInfo': {'params': {'client': '', 'checkpointId': 0}, 'parent': 'checkpoint', 'rpcMethod': 'checkpoint.info'}, 'contactGroupDelete': {'params': {'contactGroupId': 0, 'client': ''}, 'parent': 'contact', 'rpcMethod': 'contact.group.delete'}, 'availabilityList': {'params': {'sourceId': 0, 'dateInput': 20140101, 'client': '', 'history': 30}, 'parent': 'availability', 'rpcMethod': 'availability.list'}, 'filterAdd': {'params': {'sourceIds': [], 'client': '', 'filterData': {}}, 'parent': 'filter', 'rpcMethod': 'filter.add'}, 'browserList': {'params': {'client': ''}, 'parent': 'browser', 'rpcMethod': 'browser.list'}, 'sourceGroupAdd': {'params': {'parametr': {}, 'client': '', 'name': ''}, 'parent': 'source', 'rpcMethod': 'source.group.add'}, 'operatorList': {'params': {'client': ''}, 'parent': 'operator', 'rpcMethod': 'operator.list'}, 'sourceDropoutInfo': {'params': {'sourceId': 0, 'date': '2008-01-01', 'client': ''}, 'parent': 'source', 'rpcMethod': 'source.dropout.info'}, 'contactList': {'params': {'status': 'all', 'client': ''}, 'parent': 'contact', 'rpcMethod': 'contact.list'}, 'seleniumAdvancedAdd': {'params': {'code': '', 'name': '', 'targetUrl': '', 'client': '', 'inputUrl': '', 'nickname': '', 'desc': ''}, 'parent': 'selenium', 'rpcMethod': 'selenium.advanced.add'}, 'dropoutList': {'params': {'dateInput': 2040101, 'client': '', 'history': 7}, 'parent': 'dropout', 'rpcMethod': 'dropout.list'}, 'checkpointList': {'params': {'active': -1, 'client': ''}, 'parent': 'checkpoint', 'rpcMethod': 'checkpoint.list'}, 'seleniumOutputInfo': {'params': {'date': '2015-01-01', 'seleniumId': 0, 'client': ''}, 'parent': 'selenium', 'rpcMethod': 'selenium.output.info'}, 'seleniumAdvancedList': {'params': {'client': ''}, 'parent': 'selenium', 'rpcMethod': 'selenium.advanced.list'}, 'filterDelete': {'params': {'client': '', 'filterId': 0}, 'parent': 'filter', 'rpcMethod': 'filter.delete'}, 'seleniumTestAdd': {'params': {'searchType': 'css_selector', 'searchValue': '', 'advancedId': 0, 'client': '', 'urlInput': '', 'urlTarget': ''}, 'parent': 'selenium', 'rpcMethod': 'selenium.test.add'}, 'apikeyAdd': {'params': {'readOnly': 0, 'client': '', 'name': ''}, 'parent': 'apikey', 'rpcMethod': 'apikey.add'}, 'sourceInfo': {'params': {'sourceId': 0, 'client': ''}, 'parent': 'source', 'rpcMethod': 'source.info'}, 'filterExist': {'params': {'sourceIds': [], 'client': '', 'filterData': {}}, 'parent': 'filter', 'rpcMethod': 'filter.exist'}, 'sourceAdd': {'params': {'url': '', 'client': '', 'parameter': {}, 'name': '', 'sourceGroupId': 0}, 'parent': 'source', 'rpcMethod': 'source.add'}, 'contactAdd': {'params': {'contactGroup': [], 'parametr': {}, 'client': '', 'name': '', 'value': ''}, 'parent': 'contact', 'rpcMethod': 'contact.add'}, 'apikeyDelete': {'params': {'apiId': 0, 'client': ''}, 'parent': 'apikey', 'rpcMethod': 'apikey.delete'}, 'dropoutInfo': {'params': {'dateTo': 20140101, 'client': ''}, 'parent': 'dropout', 'rpcMethod': 'dropout.info'}, 'sourceStatDailyList': {'params': {'sourceId': 0, 'date': '2001-01', 'client': ''}, 'parent': 'source', 'rpcMethod': 'source.stat.daily.list'}, 'sourceGroupInfo': {'params': {'client': '', 'sourceGroupId': 0}, 'parent': 'source', 'rpcMethod': 'source.group.info'}}
+methodArgs =  {'seleniumList': {'paramArr': ['client'], 'params': {'client': ''}, 'parent': 'selenium', 'rpcMethod': 'selenium.list'}, 'notifyGroupList': {'paramArr': ['client'], 'params': {'client': ''}, 'parent': 'notify', 'rpcMethod': 'notify.group.list'}, 'notifyGroupDelete': {'paramArr': ['client', 'contactGroupId'], 'params': {'contactGroupId': 0, 'client': ''}, 'parent': 'notify', 'rpcMethod': 'notify.group.delete'}, 'notifyAdd': {'paramArr': ['client', 'name', 'value', 'parameter', 'contactGroup'], 'params': {'contactGroup': [], 'client': '', 'parameter': {}, 'name': '', 'value': ''}, 'parent': 'notify', 'rpcMethod': 'notify.add'}, 'sourceStatMonthlyList': {'paramArr': ['client', 'sourceId', 'history'], 'params': {'sourceId': 0, 'client': '', 'history': 12}, 'parent': 'source', 'rpcMethod': 'source.stat.monthly.list'}, 'notifyGroupInfo': {'paramArr': ['client', 'contactGroupId'], 'params': {'contactGroupId': 0, 'client': ''}, 'parent': 'notify', 'rpcMethod': 'notify.group.info'}, 'seleniumInfo': {'paramArr': ['client', 'seleniumId'], 'params': {'seleniumId': 0, 'client': ''}, 'parent': 'selenium', 'rpcMethod': 'selenium.info'}, 'availabilityInfo': {'paramArr': ['client', 'dateTo'], 'params': {'dateTo': 20150901, 'client': ''}, 'parent': 'availability', 'rpcMethod': 'availability.info'}, 'sourceDropoutList': {'paramArr': ['client', 'sourceId', 'history'], 'params': {'sourceId': 0, 'client': '', 'history': 7}, 'parent': 'source', 'rpcMethod': 'source.dropout.list'}, 'operatorInfo': {'paramArr': ['client', 'operatorId'], 'params': {'client': '', 'operatorId': 0}, 'parent': 'operator', 'rpcMethod': 'operator.info'}, 'sourceActive': {'paramArr': ['client', 'sourceId'], 'params': {'sourceId': 0, 'client': ''}, 'parent': 'source', 'rpcMethod': 'source.active'}, 'sourceStatDailyList': {'paramArr': ['client', 'sourceId', 'date'], 'params': {'sourceId': 0, 'date': '2001-01', 'client': ''}, 'parent': 'source', 'rpcMethod': 'source.stat.daily.list'}, 'sourceGroupDelete': {'paramArr': ['client', 'sourceGroupId'], 'params': {'client': '', 'sourceGroupId': 0}, 'parent': 'source', 'rpcMethod': 'source.group.delete'}, 'sourceUpdate': {'paramArr': ['client', 'sourceId', 'sourceDict'], 'params': {'sourceId': 0, 'sourceDict': {}, 'client': ''}, 'parent': 'source', 'rpcMethod': 'source.update'}, 'sourceDeactive': {'paramArr': ['client', 'sourceId'], 'params': {'sourceId': 0, 'client': ''}, 'parent': 'source', 'rpcMethod': 'source.deactive'}, 'filterInfo': {'paramArr': ['client', 'filterId'], 'params': {'client': '', 'filterId': 0}, 'parent': 'filter', 'rpcMethod': 'filter.info'}, 'seleniumTestAdd': {'paramArr': ['client', 'urlInput', 'searchType', 'searchValue', 'urlTarget', 'advancedId'], 'params': {'searchType': 'css_selector', 'searchValue': '', 'advancedId': 0, 'client': '', 'urlInput': '', 'urlTarget': ''}, 'parent': 'selenium', 'rpcMethod': 'selenium.test.add'}, 'apikeyList': {'paramArr': ['client'], 'params': {'client': ''}, 'parent': 'apikey', 'rpcMethod': 'apikey.list'}, 'sourceOutputGroup': {'paramArr': ['client', 'sourceId', 'tsGroup'], 'params': {'sourceId': 0, 'tsGroup': 0, 'client': ''}, 'parent': 'source', 'rpcMethod': 'source.output.group'}, 'sourceStatList': {'paramArr': ['hostname', 'history'], 'params': {'hostname': '', 'history': 7}, 'parent': 'source', 'rpcMethod': 'source.stat.list'}, 'seleniumTestInfo': {'paramArr': ['client', 'seleniumTestId'], 'params': {'seleniumTestId': 0, 'client': ''}, 'parent': 'selenium', 'rpcMethod': 'selenium.test.info'}, 'sourceList': {'paramArr': ['client', 'sourceGroupId'], 'params': {'client': '', 'sourceGroupId': 0}, 'parent': 'source', 'rpcMethod': 'source.list'}, 'filterViewList': {'paramArr': ['client'], 'params': {'client': ''}, 'parent': 'filter', 'rpcMethod': 'filter.view.list'}, 'filterList': {'paramArr': ['client', 'sourceId'], 'params': {'sourceId': 0, 'client': ''}, 'parent': 'filter', 'rpcMethod': 'filter.list'}, 'notifyInfo': {'paramArr': ['client', 'contactId'], 'params': {'contactId': 0, 'client': ''}, 'parent': 'notify', 'rpcMethod': 'notify.info'}, 'sourceGroupList': {'paramArr': ['client'], 'params': {'client': ''}, 'parent': 'source', 'rpcMethod': 'source.group.list'}, 'operatorLogList': {'paramArr': ['client', 'operatorId'], 'params': {'client': '', 'operatorId': 0}, 'parent': 'operator', 'rpcMethod': 'operator.log.list'}, 'seleniumAdvancedInfo': {'paramArr': ['client', 'advancedId'], 'params': {'client': '', 'advancedId': 0}, 'parent': 'selenium', 'rpcMethod': 'selenium.advanced.info'}, 'sourceOutputInfo': {'paramArr': ['client', 'sourceId', 'date', 'limit', 'FromId', 'outputId', 'countrys', 'checkpointIds', 'dataView'], 'params': {'sourceId': 0, 'dataView': 'all', 'checkpointIds': [], 'outputId': 0, 'countrys': [], 'client': '', 'limit': 2000, 'date': '2015-09-01', 'FromId': 0}, 'parent': 'source', 'rpcMethod': 'source.output.info'}, 'seleniumTestList': {'paramArr': ['client'], 'params': {'client': ''}, 'parent': 'selenium', 'rpcMethod': 'selenium.test.list'}, 'seleniumUpdate': {'paramArr': ['client', 'seleniumId', 'name', 'browser', 'timeout', 'testType', 'testIds', 'status', 'paramJS', 'paramScreen'], 'params': {'status': 'active', 'seleniumId': 0, 'name': '', 'paramScreen': '', 'testIds': [], 'client': '', 'paramJS': 1, 'timeout': 30, 'testType': 'content', 'browser': 'chromelin'}, 'parent': 'selenium', 'rpcMethod': 'selenium.update'}, 'checkpointInfo': {'paramArr': ['client', 'checkpointId'], 'params': {'client': '', 'checkpointId': 0}, 'parent': 'checkpoint', 'rpcMethod': 'checkpoint.info'}, 'seleniumAdd': {'paramArr': ['client', 'name', 'browser', 'timeout', 'testType', 'testIds', 'paramJS', 'paramScreen'], 'params': {'name': '', 'paramScreen': '', 'testIds': [], 'client': '', 'paramJS': 1, 'timeout': 30, 'testType': 'content', 'browser': 'chromelin'}, 'parent': 'selenium', 'rpcMethod': 'selenium.add'}, 'availabilityList': {'paramArr': ['client', 'dateInput', 'history', 'sourceId'], 'params': {'sourceId': 0, 'dateInput': 20150901, 'client': '', 'history': 30}, 'parent': 'availability', 'rpcMethod': 'availability.list'}, 'filterAdd': {'paramArr': ['client', 'filterData', 'sourceIds'], 'params': {'sourceIds': [], 'client': '', 'filterData': {}}, 'parent': 'filter', 'rpcMethod': 'filter.add'}, 'notifyList': {'paramArr': ['client', 'status'], 'params': {'status': 'all', 'client': ''}, 'parent': 'notify', 'rpcMethod': 'notify.list'}, 'sourceGroupAdd': {'paramArr': ['client', 'name', 'parameter'], 'params': {'client': '', 'parameter': {}, 'name': ''}, 'parent': 'source', 'rpcMethod': 'source.group.add'}, 'operatorList': {'paramArr': ['client'], 'params': {'client': ''}, 'parent': 'operator', 'rpcMethod': 'operator.list'}, 'sourceDropoutInfo': {'paramArr': ['client', 'sourceId', 'date'], 'params': {'sourceId': 0, 'date': '2015-09-01', 'client': ''}, 'parent': 'source', 'rpcMethod': 'source.dropout.info'}, 'seleniumAdvancedAdd': {'paramArr': ['client', 'name', 'desc', 'code', 'nickname', 'inputUrl', 'targetUrl'], 'params': {'code': '', 'name': '', 'targetUrl': '', 'client': '', 'inputUrl': '', 'nickname': '', 'desc': ''}, 'parent': 'selenium', 'rpcMethod': 'selenium.advanced.add'}, 'dropoutList': {'paramArr': ['client', 'dateInput', 'history'], 'params': {'dateInput': 2040101, 'client': '', 'history': 7}, 'parent': 'dropout', 'rpcMethod': 'dropout.list'}, 'notifyGroupAdd': {'paramArr': ['client', 'name', 'parameter'], 'params': {'client': '', 'parameter': {}, 'name': ''}, 'parent': 'notify', 'rpcMethod': 'notify.group.add'}, 'checkpointList': {'paramArr': ['client', 'active'], 'params': {'active': -1, 'client': ''}, 'parent': 'checkpoint', 'rpcMethod': 'checkpoint.list'}, 'seleniumOutputInfo': {'paramArr': ['client', 'seleniumId', 'date'], 'params': {'date': '2015-01-01', 'seleniumId': 0, 'client': ''}, 'parent': 'selenium', 'rpcMethod': 'selenium.output.info'}, 'seleniumAdvancedList': {'paramArr': ['client'], 'params': {'client': ''}, 'parent': 'selenium', 'rpcMethod': 'selenium.advanced.list'}, 'filterDelete': {'paramArr': ['client', 'filterId'], 'params': {'client': '', 'filterId': 0}, 'parent': 'filter', 'rpcMethod': 'filter.delete'}, 'notifyUpdate': {'paramArr': ['client', 'contactId', 'parameter', 'contactGroup'], 'params': {'contactGroup': [], 'contactId': 0, 'client': '', 'parameter': {}}, 'parent': 'notify', 'rpcMethod': 'notify.update'}, 'apikeyAdd': {'paramArr': ['client', 'name', 'readOnly'], 'params': {'readOnly': 0, 'client': '', 'name': ''}, 'parent': 'apikey', 'rpcMethod': 'apikey.add'}, 'sourceInfo': {'paramArr': ['client', 'sourceId'], 'params': {'sourceId': 0, 'client': ''}, 'parent': 'source', 'rpcMethod': 'source.info'}, 'filterExist': {'paramArr': ['client', 'filterData', 'sourceIds'], 'params': {'sourceIds': [], 'client': '', 'filterData': {}}, 'parent': 'filter', 'rpcMethod': 'filter.exist'}, 'sourceAdd': {'paramArr': ['client', 'sourceGroupId', 'name', 'url', 'parameter'], 'params': {'url': '', 'client': '', 'parameter': {}, 'name': '', 'sourceGroupId': 0}, 'parent': 'source', 'rpcMethod': 'source.add'}, 'notifyDelete': {'paramArr': ['client', 'contactId'], 'params': {'contactId': 0, 'client': ''}, 'parent': 'notify', 'rpcMethod': 'notify.delete'}, 'apikeyDelete': {'paramArr': ['client', 'apikeyId'], 'params': {'client': '', 'apikeyId': 0}, 'parent': 'apikey', 'rpcMethod': 'apikey.delete'}, 'dropoutInfo': {'paramArr': ['client', 'dateTo'], 'params': {'dateTo': 20150901, 'client': ''}, 'parent': 'dropout', 'rpcMethod': 'dropout.info'}, 'notifySenderInfo': {'paramArr': ['client', 'dateTo'], 'params': {'dateTo': 20150101, 'client': ''}, 'parent': 'notify', 'rpcMethod': 'notify.sender.info'}, 'notifyDeactive': {'paramArr': ['client', 'value'], 'params': {'client': '', 'value': ''}, 'parent': 'notify', 'rpcMethod': 'notify.deactive'}, 'sourceGroupInfo': {'paramArr': ['client', 'sourceGroupId'], 'params': {'client': '', 'sourceGroupId': 0}, 'parent': 'source', 'rpcMethod': 'source.group.info'}}
