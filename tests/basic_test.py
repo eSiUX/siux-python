@@ -145,6 +145,20 @@ class TestStringMethods(unittest.TestCase):
 		self.assertTrue( 'time' in retList )
 		self.assertTrue( 'time' in retList )
 
+		S = siuxlib.SiUXclient( auth = "not existent auth string" )
+
+		self.assertTrue( 'status' in retList )
+		self.assertEqual( 401 , retList['status'])
+
+		self.assertTrue( 'statusCode' in retList )
+		self.assertEqual( 'UNAUTHORIZED' , retList['statusCode'] )
+
+		self.assertTrue( 'statusMessage' in retList )
+		self.assertEqual( 'Unauthorized' , retList['statusMessage'] )
+
+		self.assertTrue( 'time' in retList )
+		self.assertTrue( 'time' in retList )
+
 
 	def testApiNonExistMethod(self):
 		"""
@@ -164,7 +178,33 @@ class TestStringMethods(unittest.TestCase):
 			retList = S.nonExistMethod()
 
 
+	def testApiListFailGroupString(self):
+		"""
+		Test tests error message when groupId is not number
+		"""
 
+		# init
+		S = siuxlib.SiUXclient( auth = self.auth )
+		# source.list()
+
+		retList = S.sourceList( sourceGroupId = "testing string")
+		#pprint.pprint( retList )
+		self.assertEqual( 409 , retList['status'])
+
+		self.assertEqual( 'WRONG_ARG' , retList['statusCode'] )
+
+		self.assertEqual( 'Wrong input argument(s) : SourceGroupId "testing string" must be integer' , retList['statusMessage'] )
+
+	def testApiNonExistParameter(self):
+		"""
+		Test tests incorrect api method call raises type error - non existent parameter
+		"""
+
+		# init - with no auth
+		S = siuxlib.SiUXclient( auth = self.auth )
+
+  		with self.assertRaises(TypeError):
+			retList = S.sourceList(nonExistentParameter = 2)
 
 
 if __name__ == '__main__':
