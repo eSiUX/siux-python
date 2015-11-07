@@ -1,3 +1,6 @@
 # ignore python compile files
 *.pyc
 *.pyo
+
+# sync files
+sync.sh
